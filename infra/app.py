@@ -3,7 +3,7 @@ import os
 
 import aws_cdk as cdk
 
-from infra.infra.lambda_nest_app_stack import LambdaNestAppStack
+from infra.api_nest_stack import ApiNestStack
 
 # 0. Set environment variables
 
@@ -18,9 +18,9 @@ app = cdk.App()
 
 # 2. Create stack
 
-LambdaNestAppStack(
+ApiNestStack(
     app,
-    "LambdaNestAppStack",
+    "LambdaApiNestStack",
     env=env,
 )
 
