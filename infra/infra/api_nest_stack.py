@@ -27,7 +27,8 @@ class ApiNestStack(Stack):
 
             api = apigateway.RestApi(
                 self,
-                "ApiNestJS",
+                id="CartAPINestJS",
+                rest_api_name="Cart API NestJS",
                 deploy=True,
                 default_method_options={"api_key_required": True},
             )
