@@ -1,14 +1,15 @@
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = function (options, webpack) {
-  const lazyImports = [];
+  const lazyImports = [
+    '@nestjs/websockets/socket-module',
+    '@nestjs/microservices/microservices-module',
+  ];
 
   return {
     ...options,
     entry: ['./src/lambda.ts'],
-    externals: [
-      // ...options.externals,
-    ],
+    externals: [],
     output: {
       ...options.output,
       libraryTarget: 'commonjs2',
@@ -27,8 +28,6 @@ module.exports = function (options, webpack) {
       minimize: true, // Enable minification
       minimizer: [
         new TerserPlugin({
-          // TerserPlugin options here
-          // For example, to keep class names and function names:
           terserOptions: {
             keep_classnames: true,
             keep_fnames: true,

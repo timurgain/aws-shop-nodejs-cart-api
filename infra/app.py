@@ -20,7 +20,7 @@ app = cdk.App()
 
 ApiNestStack(
     app,
-    "LambdaApiNestStack",
+    "ApiNestStack",
     env=env,
 )
 

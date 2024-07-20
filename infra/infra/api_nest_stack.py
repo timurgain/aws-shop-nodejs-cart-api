@@ -17,10 +17,10 @@ class ApiNestStack(Stack):
 
         try:
 
-            self.nestHandler = _lambda.Function(
+            nestHandler = _lambda.Function(
                 self,
                 "ApiNestHandlerFunction",
-                runtime=_lambda.Runtime.NODEJS_20_X,
+                runtime=_lambda.Runtime.NODEJS_18_X,
                 code=_lambda.Code.from_asset("../dist"),
                 handler="main.handler",
             )
@@ -30,26 +30,29 @@ class ApiNestStack(Stack):
                 id="CartAPINestJS",
                 rest_api_name="Cart API NestJS",
                 deploy=True,
-                default_method_options={"api_key_required": True},
+                # default_method_options={"api_key_required": True},
             )
 
             api.root.add_proxy(
                 default_integration=apigateway.LambdaIntegration(
-                    self.nestHandler, proxy=True
+                    nestHandler, proxy=True
                 )
             )
 
-            plan = api.add_usage_plan("UsagePlan",
-                name="Easy",
-                throttle=apigateway.ThrottleSettings(
-                    rate_limit=10,
-                    burst_limit=2
-                )
-            )
+            # plan = api.add_usage_plan("UsagePlan",
+            #     name="UsagePlanEasy",
+            #     api_stages=[
+            #         apigateway.StageOptions(stage_name=api.deployment_stage.stage_name)
+            #     ],
+            #     throttle=apigateway.ThrottleSettings(
+            #         rate_limit=10,
+            #         burst_limit=2
+            #     )
+            # )
 
-            api_key = api.add_api_key("ApiKey")
+            # api_key = api.add_api_key("TestApiKey")
 
-            plan.add_api_key(api_key)
+            # plan.add_api_key(api_key)
 
             logger.info("ApiNestStack created successfully")
 
