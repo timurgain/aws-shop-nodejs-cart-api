@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 
 class ApiNestStack(Stack):
 
-    def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
+    def __init__(self, scope: Construct, construct_id: str, env_app: dict, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
         try:
@@ -22,6 +22,7 @@ class ApiNestStack(Stack):
                 runtime=_lambda.Runtime.NODEJS_18_X,
                 code=_lambda.Code.from_asset("../dist"),
                 handler="main.handler",
+                environment=env_app,
             )
 
             api = apigateway.RestApi(
