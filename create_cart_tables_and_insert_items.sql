@@ -26,6 +26,6 @@ INSERT INTO carts (id, user_id, created_at, updated_at, status) VALUES
 -- 4. Insert test data into cart_items
 
 INSERT INTO cart_items (cart_id, product_id, count) VALUES
-('b3e1c25d-d2e8-4c5c-a8a3-f2e6ad9d0d61', 'a4b5c6d7-e8f9-4b7a-8f6d-9e5c6d7a4b5f', 2),
-('b3e1c25d-d2e8-4c5c-a8a3-f2e6ad9d0d61', 'b5c6d7e8-f9a4-4b7a-8f6d-9e5c6d7a4c5f', 3),
-('5a1d7e11-5d62-4d2f-9f6b-c4e4c5c6a84f', 'c6d7e8f9-a4b5-4c7a-8f6d-9e5c6d7a4d5f', 1);
+('b3e1c25d-d2e8-4c5c-a8a3-f2e6ad9d0d61', 'bf700af8-b570-4a77-b1d2-38ba3ea34553', 30),
+('b3e1c25d-d2e8-4c5c-a8a3-f2e6ad9d0d61', 'dcee7d21-7d6d-450c-87b1-39789cc63ceb', 30),
+('5a1d7e11-5d62-4d2f-9f6b-c4e4c5c6a84f', '273937a9-ab4f-4d05-bccc-34062e5861a6', 10);
