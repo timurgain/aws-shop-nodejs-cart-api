@@ -9,7 +9,6 @@ from constructs import Construct
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-
 class ApiNestStack(Stack):
 
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
